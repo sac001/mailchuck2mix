@@ -1,0 +1,11 @@
+A simple .procmailrc for remops, allowing users of paid
+mailchuck accounts to send outfiles from their Mixclient
+within their Bitmessage client.
+
+PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin
+SHELL=/bin/sh
+MAILDIR=$HOME/Maildir
+DEFAULT=$MAILDIR/
+:0fBbw
+* ^FROM.*mailchuck\.com
+| sed -n '/^::$/,/^-----END REMAILER MESSAGE-----$/p' | ./yamn -M
